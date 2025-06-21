@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Pagina exibição dos livros</h1>
+    <button><a href="adiciona_livros">Adicionar livro</a></button>
+
+    <table class="table table-hover table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nome do Livro</th>
+      <th scope="col">Autor</th>
+      <th scope="col">Genero</th>
+      <th scope="col">Valor</th>
+      <th scope="col">Editar</th>
+      <th scope="col">Deletar</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      {{#each exibir_livros}}
+      <tr>
+      <td>{{id}}</td>
+      <td>{{nome_livro}}</td>
+      <td>{{nome_autor}}</td>
+      <td>{{genero}}</td>
+      <td>{{preço}}</td>
+      <td><button class="btn btn-warning"><a href="/editar_livro/{{id}}">Editar</a></button></td>
+      <td><button class="btn btn-danger"><a href="/deletar/{{id}}">Deletar</a></button></td>
+    </tr>
+    
+    {{/each}}
+    
+  
+</body>
+</html>

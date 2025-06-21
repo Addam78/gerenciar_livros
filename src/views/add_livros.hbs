@@ -1,0 +1,34 @@
+<h1 style="text-align: center;">Adicionar Livro</h1>
+<button class="btn btn-secondary"><a href="/">Retorna pagina incial</a></button>
+
+
+<div class="card">
+    <div class="card-body">
+        <form method="post" action="/inserir_livros">
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Nome do Livro</label>
+                <input type="text" class="form-control"  name="nome_livro_form" required
+                    placeholder="Insira o nome do livro">
+            </div>
+
+            <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Nome do autor do Livro</label>
+                <input type="text" class="form-control" name="nome_autor_form" required
+                    placeholder="Nome do autor ">
+            </div>
+
+             <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Genero do Livro</label>
+                <input type="text" class="form-control"  name="genero_form" required
+                    placeholder="Genero">
+            </div>
+
+            <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Preço do Livro</label>
+                <input type ="text" class="form-control"  name="preço_form" 
+                    placeholder="Insira o valor do livro">
+            </div>
+            <button type="submit" class="btn btn-success">Adicionar Livro</button>
+        </form>
+    </div>
+</div>

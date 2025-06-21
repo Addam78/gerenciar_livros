@@ -1,0 +1,34 @@
+<h1 style="text-align: center;">EditarLivro</h1>
+<button class="btn btn-secondary"><a href="/">Retorna pagina incial</a></button>
+
+
+<div class="card">
+    <div class="card-body">
+        <form  action="/edicao_livro/{{livro.id}}" method="post">
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Nome do Livro</label>
+                <input type="text" class="form-control"  name="nome_livro_form" value = "{{livro.nome_livro}}"
+                    placeholder="Insira o nome do livro">
+            </div>
+
+            <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Nome do autor do Livro</label>
+                <input type="text" class="form-control" name="nome_autor_form"  value = "{{livro.nome_autor}}"
+                    placeholder="Nome do autor ">
+            </div>
+
+             <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Genero do Livro</label>
+                <input type="text" class="form-control"  name="genero_form" value = "{{livro.genero}}"
+                    placeholder="Genero">
+            </div>
+
+            <div class="mb-3">
+                <label for="formGroupExampleInput2" class="form-label">Preço do Livro</label>
+                <input type="number" class="form-control"  name="preço_form" value = "{{livro.preço}}"
+                    placeholder="Insira o valor do livro">
+            </div>
+            <button type="submit" class="btn btn-success">Editar Livro</button>
+        </form>
+    </div>
+</div>
