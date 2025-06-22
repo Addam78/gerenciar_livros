@@ -68,10 +68,14 @@ app.post('/inserir_livros', async (req,reply) =>{
             nome_autor :nome_autor_form,
             genero :genero_form,
             preço :preço_form,
-        })
+        }
+      )
+      
     }catch(error){
         console.error(error)
     }
+    return reply.redirect('/')
+
 })
 
 //ROTA PARA DELETAR POR MEIO DE ID , NÃO É A MALHOR PRATICA
@@ -88,6 +92,7 @@ app.get('/deletar/:id', async (req,reply) =>{
     }catch(error){
         console.error(error)
     }
+    return reply.redirect('/')
     
 })
 
@@ -138,15 +143,6 @@ app.post('/edicao_livro/:id', async (req,reply) =>{
     return reply.status(500).send('Erro ao atualizar livro');
   }
 })
-
-// app.listen({ port }, function (err, adress) {
-//     if (err) {
-//         app.log.error(err)
-//         process.exit(1)
-//     } else {
-//         console.log('Servidor rodando')
-//     }
-// })
 
 const port = process.env.PORT || 3000;
 
