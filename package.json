@@ -1,8 +1,12 @@
 {
   "name": "gerencia_livros_ts",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.ts",
+  "engines": {
+    " node": "22.13.1"
+  },
   "scripts": {
+    "start": "ts-node src/server.ts",
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts"
   },
   "license": "MIT",
@@ -11,6 +15,7 @@
     "@fastify/view": "^11.1.0",
     "@types/handlebars": "^4.1.0",
     "cors": "^2.8.5",
+    "env": "^0.0.2",
     "fastify": "^5.4.0",
     "handlebars": "^4.7.8",
     "knex": "^3.1.0",

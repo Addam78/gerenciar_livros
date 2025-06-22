@@ -38,7 +38,7 @@ app.register(view, {
 handlebars.registerHelper('eq', function (a, b) {
     return a === b;
   });
-
+const port = Number(process.env.PORT) || 8089
 
 // ROTA PRINCIPAL DE VISUALZIAR OS LIVROS
 app.get('/', async (req,reply) =>{
@@ -56,7 +56,12 @@ app.get('/adiciona_livros', async (req,reply) =>{
 //ROTA PARA ADICIONAR LIVRO
 app.post('/inserir_livros', async (req,reply) =>{
     try{
-        const { nome_livro_form,nome_autor_form,genero_form,preço_form} = req.body
+        const { nome_livro_form, nome_autor_form, genero_form, preço_form } = req.body as {
+            nome_livro_form: string;
+            nome_autor_form: string;
+            genero_form: string;
+            preço_form: string;
+        };
 
          await knex('livros').insert({
             nome_livro :nome_livro_form,
@@ -72,7 +77,7 @@ app.post('/inserir_livros', async (req,reply) =>{
 //ROTA PARA DELETAR POR MEIO DE ID , NÃO É A MALHOR PRATICA
 app.get('/deletar/:id', async (req,reply) =>{
 
-    const { id } = req.params
+    const { id } = req.params as { id: string };
 
     try {
         const deletar = await knex('livros').where({ id }).del()
@@ -90,7 +95,7 @@ app.get('/deletar/:id', async (req,reply) =>{
 app.get('/editar_livro/:id', async (req,reply) =>{
     
     //CRIAR CONSTANTE PARA CAPTURAR ID 
-    const { id } = req.params
+    const { id } = req.params as { id: string };
 
     const livro = await knex('livros').where({id}).first()
 
@@ -103,9 +108,14 @@ app.get('/editar_livro/:id', async (req,reply) =>{
 
 app.post('/edicao_livro/:id', async (req,reply) =>{
      
-    const { id } = req.params;
+    const { id } = req.params as { id: string };
 
-    const { nome_livro_form,nome_autor_form,genero_form,preço_form} = req.body;
+    const { nome_livro_form, nome_autor_form, genero_form, preço_form } = req.body as {
+        nome_livro_form: string;
+        nome_autor_form: string;
+        genero_form: string;
+        preço_form: string;
+    };
 
   try {
     const atualizado = await knex('livros')
@@ -129,11 +139,11 @@ app.post('/edicao_livro/:id', async (req,reply) =>{
   }
 })
 
-app.listen({port:8089}, function (err,adress){
-    if(err){
+app.listen({ port }, function (err, adress) {
+    if (err) {
         app.log.error(err)
         process.exit(1)
-    }else{
+    } else {
         console.log('Servidor rodando')
     }
 })
