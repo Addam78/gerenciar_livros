@@ -38,7 +38,7 @@ app.register(view, {
 handlebars.registerHelper('eq', function (a, b) {
     return a === b;
   });
-const port = Number(process.env.PORT) || 8089
+
 
 // ROTA PRINCIPAL DE VISUALZIAR OS LIVROS
 app.get('/', async (req,reply) =>{
@@ -139,12 +139,20 @@ app.post('/edicao_livro/:id', async (req,reply) =>{
   }
 })
 
-app.listen({ port }, function (err, adress) {
-    if (err) {
-        app.log.error(err)
-        process.exit(1)
-    } else {
-        console.log('Servidor rodando')
-    }
-})
+// app.listen({ port }, function (err, adress) {
+//     if (err) {
+//         app.log.error(err)
+//         process.exit(1)
+//     } else {
+//         console.log('Servidor rodando')
+//     }
+// })
 
+const port = process.env.PORT || 3000;
+
+app.listen({
+  port: Number(port),
+  host: '0.0.0.0'
+}, () => {
+  console.log(`Servidor rodando na porta ${port}`);
+});
