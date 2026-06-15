@@ -1,41 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1 style="text-align: center;">Pagina exibição dos livros</h1>
-    <button><a href="adiciona_livros">Adicionar livro</a></button>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="mb-0 fw-semibold">Livros cadastrados</h4>
+    <a href="/adiciona_livros" class="btn btn-primary btn-sm">+ Adicionar livro</a>
+</div>
 
-    <table class="table table-hover table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Nome do Livro</th>
-      <th scope="col">Autor</th>
-      <th scope="col">Genero</th>
-      <th scope="col">Valor</th>
-      <th scope="col">Editar</th>
-      <th scope="col">Deletar</th>
-    </tr>
-  </thead>
-
-  <tbody>
-      {{#each exibir_livros}}
-      <tr>
-      <td>{{id}}</td>
-      <td>{{nome_livro}}</td>
-      <td>{{nome_autor}}</td>
-      <td>{{genero}}</td>
-      <td>{{preço}}</td>
-      <td><button class="btn btn-warning"><a href="/editar_livro/{{id}}">Editar</a></button></td>
-      <td><button class="btn btn-danger"><a href="/deletar/{{id}}">Deletar</a></button></td>
-    </tr>
-    
-    {{/each}}
-    
-  
-</body>
-</html>
+<div class="card">
+    <div class="card-body p-0">
+        <table class="table table-hover table-bordered mb-0">
+            <thead>
+                <tr>
+                    <th scope="col" style="width:60px">ID</th>
+                    <th scope="col">Nome do Livro</th>
+                    <th scope="col">Autor</th>
+                    <th scope="col">Gênero</th>
+                    <th scope="col" style="width:100px">Valor</th>
+                    <th scope="col" style="width:80px">Editar</th>
+                    <th scope="col" style="width:80px">Deletar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each exibir_livros}}
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{nome_livro}}</td>
+                    <td>{{nome_autor}}</td>
+                    <td>{{genero}}</td>
+                    <td>R$ {{preço}}</td>
+                    <td><a href="/editar_livro/{{id}}" class="btn btn-warning btn-sm">Editar</a></td>
+                    <td><a href="/deletar/{{id}}" class="btn btn-danger btn-sm">Deletar</a></td>
+                </tr>
+                {{else}}
+                <tr>
+                    <td colspan="7" class="text-center text-muted py-4">Nenhum livro cadastrado ainda.</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

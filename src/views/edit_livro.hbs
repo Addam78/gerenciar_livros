@@ -1,34 +1,30 @@
-<h1 style="text-align: center;">EditarLivro</h1>
-<button class="btn btn-secondary"><a href="/">Retorna pagina incial</a></button>
+<div class="form-wrapper">
+    <div class="d-flex align-items-center gap-2 mb-3">
+        <a href="/" class="btn btn-outline-secondary btn-sm">&#8592; Voltar</a>
+        <h4 class="mb-0 fw-semibold">Editar Livro</h4>
+    </div>
 
-
-<div class="card">
-    <div class="card-body">
-        <form  action="/edicao_livro/{{livro.id}}" method="post">
-            <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">Nome do Livro</label>
-                <input type="text" class="form-control"  name="nome_livro_form" value = "{{livro.nome_livro}}"
-                    placeholder="Insira o nome do livro">
-            </div>
-
-            <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">Nome do autor do Livro</label>
-                <input type="text" class="form-control" name="nome_autor_form"  value = "{{livro.nome_autor}}"
-                    placeholder="Nome do autor ">
-            </div>
-
-             <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">Genero do Livro</label>
-                <input type="text" class="form-control"  name="genero_form" value = "{{livro.genero}}"
-                    placeholder="Genero">
-            </div>
-
-            <div class="mb-3">
-                <label for="formGroupExampleInput2" class="form-label">Preço do Livro</label>
-                <input type="number" class="form-control"  name="preço_form" value = "{{livro.preço}}"
-                    placeholder="Insira o valor do livro">
-            </div>
-            <button type="submit" class="btn btn-success">Editar Livro</button>
-        </form>
+    <div class="card">
+        <div class="card-body">
+            <form action="/edicao_livro/{{livro.id}}" method="post">
+                <div class="mb-3">
+                    <label class="form-label">Nome do Livro</label>
+                    <input type="text" class="form-control" name="nome_livro_form" value="{{livro.nome_livro}}" required placeholder="Ex: Dom Casmurro">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Autor</label>
+                    <input type="text" class="form-control" name="nome_autor_form" value="{{livro.nome_autor}}" required placeholder="Ex: Machado de Assis">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Gênero</label>
+                    <input type="text" class="form-control" name="genero_form" value="{{livro.genero}}" required placeholder="Ex: Romance">
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Preço (R$)</label>
+                    <input type="number" step="0.01" min="0" class="form-control" name="preço_form" value="{{livro.preço}}" placeholder="Ex: 39.90">
+                </div>
+                <button type="submit" class="btn btn-warning w-100">Salvar alterações</button>
+            </form>
+        </div>
     </div>
 </div>

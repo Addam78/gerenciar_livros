@@ -6,7 +6,7 @@ import path from 'path'
 module.exports ={
     client : 'sqlite3',
     connection :{
-        filename:path.resolve(__dirname, 'src', 'database','database.sqlite'),
+        filename:path.resolve(__dirname, 'src', 'database','database.sqlite'), //DATABASESQLITE DEFINE O NOME DO BANCO
     },
     migrations :{
         directory :path.resolve(__dirname, 'src', 'database','migrations')
@@ -18,38 +18,3 @@ module.exports ={
 };
 
 
-//   staging: {
-//     client: "postgresql",
-//     connection: {
-//       database: "my_db",
-//       user: "username",
-//       password: "password"
-//     },
-//     pool: {
-//       min: 2,
-//       max: 10
-//     },
-//     migrations: {
-//       tableName: "knex_migrations"
-//     }
-//   },
-
-//   production: {
-//     client: "postgresql",
-//     connection: {
-//       database: "my_db",
-//       user: "username",
-//       password: "password"
-//     },
-//     pool: {
-//       min: 2,
-//       max: 10
-//     },
-//     migrations: {
-//       tableName: "knex_migrations"
-//     }
-//   }
-
-// };
-
-// module.exports = config;
